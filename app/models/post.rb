@@ -6,6 +6,10 @@ class Post < ActiveRecord::Base
 
   #put new code here
 
+  def self.by_author(author_id)
+    where(author: author_id)
+  end
+
   def self.from_today
     where("created_at >=?", Time.zone.today.beginning_of_day)
   end
